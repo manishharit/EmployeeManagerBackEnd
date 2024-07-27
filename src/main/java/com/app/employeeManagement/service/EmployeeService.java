@@ -20,7 +20,7 @@ public class EmployeeService {
             return employeeRepository.save(employee);
         }
 
-       return null;
+       throw new RuntimeException("Email Already Exist");
     }
 
     public List<Employee> getAllEmployee() {

@@ -17,17 +17,17 @@ public class VendorController {
 
     private VendorService vendorService;
 
-    @PostMapping("/create/vendor")
+    @PostMapping("/api/create/vendor")
     public ResponseEntity<Vendor> createEmployee(@RequestBody Vendor vendor){
         return new ResponseEntity<>(vendorService.saveVendor(vendor), HttpStatus.CREATED);
     }
 
-    @GetMapping("/get/vendor")
+    @GetMapping("/api/get/vendor")
     public ResponseEntity<List<Vendor>> getAllVendors(){
         return ResponseEntity.ok(vendorService.getAllVendors());
     }
 
-    @GetMapping("/get/vendor/{email}")
+    @GetMapping("/api/get/vendor/{email}")
     public ResponseEntity<Vendor> getVendorByEmail(@PathVariable(name = "email") String email){
         return ResponseEntity.ok(vendorService.getVendorByEmail(email));
     }

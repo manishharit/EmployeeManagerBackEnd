@@ -18,7 +18,7 @@ public class VendorService {
         if(!vendorRepository.existsByEmail(vendor.getEmail())){
             return vendorRepository.save(vendor);
         }
-        return null;
+        throw new RuntimeException("Email Already Exist");
     }
 
     public List<Vendor> getAllVendors() {

@@ -14,18 +14,18 @@ import java.util.List;
 public class EmployeeController {
     private EmployeeService employeeService;
 
-    @PostMapping("/create/employee")
+    @PostMapping("/api/create/employee")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
 
     }
 
-    @GetMapping("/get/employee")
+    @GetMapping("/api/get/employee")
     public ResponseEntity<List<Employee>> getAllEmployee(){
         return ResponseEntity.ok(employeeService.getAllEmployee());
     }
 
-    @GetMapping("/get/employee/{email}")
+    @GetMapping("/api/get/employee/{email}")
     public ResponseEntity<Employee> getEmployeeByEmail(@PathVariable(name = "email") String email){
         return ResponseEntity.ok(employeeService.getEmployeeByEmail(email));
     }
